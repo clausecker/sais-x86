@@ -1,0 +1,19 @@
+sais-x86
+========
+
+Sais-x86 is an implementation of the IS (induced sorting) suffix array
+construction algorithm in x86-64 assembly for systems following the
+SysV ABI.
+
+This implementation seems to be about 15% faster than sais-lite due to
+various small optimisations.  I expect further performance improvements
+to occur by vectorising the code, but I have not gotten around doing
+that so far.
+
+Sais-x86 is based on sais-lite 2.4.1 by Yuta Mori <yuta.256@gmail.com>
+
+The SA-IS algorithm was first described in:
+
+Ge Nong, Sen Zhang, and Wai Hong Chang: "Two Efficient Algorithms for
+Linear Suffix Array Construction", IEEE Transactions on Computers,
+vol. 60(10), p. 1471--1484, Oct. 2011.
