@@ -43,7 +43,7 @@
 	// sais(T, SA, n)
 	// compute suffix array SA of length n for byte array T
 	.type sais, @function
-	.align 16
+	.align 16, 0xcc
 sais:	push %rbp		// establish ...
 	mov %rsp, %rbp		// stack frame
 
@@ -83,7 +83,7 @@ sais:	push %rbp		// establish ...
 	// store in B where the buckets in C start
 	// TODO: vectorize
 	.type getBucketStarts, @function
-	.align 16
+	.align 16, 0xcc
 getBucketStarts:
 	push %rbp		// establish ...
 	mov %rsp, %rbp		// stack frame
@@ -124,7 +124,7 @@ getBucketStarts:
 	// store in B where the buckets in C end
 	// TODO: vectorize
 	.type getBucketEnds, @function
-	.align 16
+	.align 16, 0xcc
 getBucketEnds:
 	push %rbp		// establish ...
 	mov %rsp, %rbp		// stack frame
@@ -160,7 +160,7 @@ getBucketEnds:
 	// LMSpostproc2(SA, n, m)
 	// postprocess the result of LMSsort2
 	.type LMSpostproc2, @function
-	.align 16
+	.align 16, 0xcc
 LMSpostproc2:
 	// rdi: SA
 	// esi: n

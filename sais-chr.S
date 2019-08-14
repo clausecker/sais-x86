@@ -34,7 +34,7 @@
 	// count how often each character of T occurs.
 	// Characters are in the range 0 .. k - 1
 	.type TSIZE(getCounts), @function
-	.align 16
+	.align 16, 0xcc
 TSIZE(getCounts):
 	xor %eax, %eax
 	mov %rsi, %r8	// r8 = C
@@ -69,7 +69,7 @@ TSIZE(getCounts):
 	// sort LMS substrings according to strategy 2
 	// (for when n <= SAIS_LMSSORT2_LIMIT)
 	.type TSIZE(LMSsort2), @function
-	.align 16
+	.align 16, 0xcc
 TSIZE(LMSsort2):
 	// T: r12 (orig. in rdi)
 	// SA: r14 (orig. in rsi)
@@ -285,7 +285,7 @@ TSIZE(LMSsort2):
 	// sort LMS substrings according to strategy 1
 	// (for when n <= SAIS_LMSSORT2_LIMIT)
 	.type TSIZE(LMSsort1), @function
-	.align 16
+	.align 16, 0xcc
 TSIZE(LMSsort1):
 	// T:  rdi
 	// SA: rsi
@@ -460,7 +460,7 @@ TSIZE(LMSsort1):
 	// LMSpostproc1(T, SA, n, m)
 	// postprocess the result of LMSsort1
 	.type TSIZE(LMSpostproc1), @function
-	.align 16
+	.align 16, 0xcc
 TSIZE(LMSpostproc1):
 	// T: rdi
 	// SA: rsi
@@ -622,7 +622,7 @@ TSIZE(LMSpostproc1):
 	// induceSA(T, SA, C, B, n, k)
 	// induce the suffix array from buckets B and the prepared array SA
 	.type TSIZE(induceSA), @function
-	.align 16
+	.align 16, 0xcc
 TSIZE(induceSA):
 	// T: rdi
 	// SA: r11 (orig. in rsi)
@@ -806,7 +806,7 @@ TSIZE(induceSA):
 	// sais_stage1(T, SA, C, B, n, k, name, flags)
 	// reduce the problem by at least 1/2 and sort all LMS substrings
 	.type TSIZE(sais_stage1), @function
-	.align 16
+	.align 16, 0xcc
 TSIZE(sais_stage1):
 	// T: r12 (orig. in rdi)
 	// SA: rbx (orig. in rsi)
@@ -1035,7 +1035,7 @@ TSIZE(sais_stage1):
 	// sais_stage2(T, SA, n, k, m, name, fs, flags)
 	// solve the reduced problem by recursion
 	.type TSIZE(sais_stage2), @function
-	.align 16
+	.align 16, 0xcc
 TSIZE(sais_stage2):
 	// T: rdi
 	// SA: rsi
@@ -1193,7 +1193,7 @@ TSIZE(sais_stage2):
 	// sais_stage3(T, SA, B, n, m)
 	// put all left-most S characters into their buckets
 	.type TSIZE(sais_stage3), @function
-	.align 16
+	.align 16, 0xcc
 TSIZE(sais_stage3):
 	// T: rdi
 	// SA: rsi
@@ -1259,7 +1259,7 @@ TSIZE(sais_stage3):
 	// sais_main(T, SA, fs, n, k)
 	// find the suffix array SA of T[0..n-1] in {0..k}^n
 	.type TSIZE(sais_main), @function
-	.align 16
+	.align 16, 0xcc
 TSIZE(sais_main):
 	// T: -8(%rbp) (orig in rdi)
 	// SA: -16(%rbp) (orig in rsi)
